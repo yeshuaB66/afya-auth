@@ -58,9 +58,9 @@ app.get("/", (req, res) => res.send(`<!DOCTYPE html>
 <h1>Afyanalytics Auth Tester</h1>
 
 <div class="btn-row">
-  <button id="btnInit" onclick="call('/api/initiate','Init')">▶ Initiate Handshake</button>
+  <button id="btnInit" onclick="call('/api/initiate','Init')">Initiate Handshake</button>
   <button id="btnComplete" onclick="call('/api/complete','Complete')">✓ Complete Handshake</button>
-  <button id="btnFull" onclick="call('/api/full-flow','Full Flow')">⚡ Full Flow</button>
+  <button id="btnFull" onclick="call('/api/full-flow','Full Flow')">Full Flow</button>
 </div>
 
 <div class="panel">
@@ -81,7 +81,7 @@ app.get("/", (req, res) => res.send(`<!DOCTYPE html>
       const r = await fetch(url, { method: 'POST' });
       const data = await r.json();
       document.getElementById('resp').textContent = JSON.stringify(data, null, 2);
-      document.getElementById('respLabel').textContent = label + ' — ' + (data.success ? '✅ success' : '❌ failed');
+      document.getElementById('respLabel').textContent = label + ' — ' + (data.success ? '(success)' : ' (failed)');
     } catch(e) {
       document.getElementById('resp').textContent = e.message;
     }
